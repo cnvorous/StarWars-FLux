@@ -6,7 +6,7 @@ export const PlanetCard = (props) => {
     <div className="card">
       <img className="card-img-top" src="..." alt="Card image cap"/>
       <div className="card-body">
-         <h5 className="card-title">{props.name}</h5>
+         <h5 className="card-title">{props.planet}</h5>
          <p className="card-text">{props.terrain}</p>
 			<p className="card-text">{props.climate}</p>
 			<p className="card-text">{props.population}</p>
@@ -17,7 +17,7 @@ export const PlanetCard = (props) => {
   }
 
 PlanetCard.propTypes= {
-         name: PropTypes.string,
+         planet: PropTypes.string,
 			rotation_period: PropTypes.string,
 			orbital_period: PropTypes.string,
 			diameter: PropTypes.string,

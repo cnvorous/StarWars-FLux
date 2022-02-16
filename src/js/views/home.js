@@ -35,7 +35,7 @@ export const Home = () => {
 			return response.json();
 		})
 		.then((planets) => {
-			setPlanetCard(planents.results);
+			setPlanetCard(planets.results);
 		});
 	}, 
 	[]);
@@ -43,13 +43,32 @@ export const Home = () => {
 
 	return (
 	<div>
-		{personCard.map((item)=>{
+		<div className="d-flex">
+		{personCard.map((item)=>{  //the item is the bulk of info between {} given, whats inside is different properties
 			return(
-				<CharacterCard/>
+				<CharacterCard 
+					person={item.name}
+					gender={item.gender}
+					hair_color={item.hair_color}
+					eye_color={item.eye_color}
+				/>
 			);
 		}
 		)}
-		<PlanetCard/>
+		</div>
+		<div className="d-flex">
+		{planetCard.map((item)=>{
+			return(
+				<PlanetCard
+					planet ={item.name}
+					climate ={item.climate}
+					terrain ={item.terrain}
+					population={item.population}
+		     />
+			);
+		} )}
+		</div>
 	</div>
 );
 }
+
