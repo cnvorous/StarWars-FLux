@@ -44,13 +44,14 @@ export const Home = () => {
 	return (
 	<div>
 		<div className="d-flex">
-		{personCard.map((item)=>{  //the item is the bulk of info between {} given, whats inside is different properties
+		{personCard.map((item, index)=>{  //the item is the bulk of info between {} given, whats inside is different properties
 			return(
 				<CharacterCard 
 					person={item.name}
 					gender={item.gender}
 					hair_color={item.hair_color}
 					eye_color={item.eye_color}
+					id={index}
 				/>
 			);
 		}

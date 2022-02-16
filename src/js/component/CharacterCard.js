@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link, useParams } from "react-router-dom";
 
 
 export const CharacterCard = (props) => {
@@ -11,7 +12,11 @@ export const CharacterCard = (props) => {
          <p className="card-text">{props.gender}</p>
          <p className="card-text">{props.hair_color}</p>
          <p className="card-text"> {props.eye_color}</p>
-         <a href="#" className="btn btn-primary">Learn More</a>
+         <Link to={`/single/${props.id}/`}>
+				<span className="btn btn-primary btn-lg" href="#" role="button">
+					Learn More
+				</span>
+			</Link>
       </div>
       </div>
    );
@@ -27,4 +32,5 @@ export const CharacterCard = (props) => {
       skin_color: PropTypes.string,
       birth_year: PropTypes.string,
       gender: PropTypes.string,
+      id: PropTypes.number,
    }

@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link, useParams } from "react-router-dom";
 
 export const PlanetCard = (props) => {
 	return (
@@ -10,7 +11,11 @@ export const PlanetCard = (props) => {
          <p className="card-text">{props.terrain}</p>
 			<p className="card-text">{props.climate}</p>
 			<p className="card-text">{props.population}</p>
-         <a href="#" className="btn btn-primary">Learn More</a>
+         <Link to="/">
+				<span className="btn btn-primary btn-lg" href="#" role="button">
+					Learn More
+				</span>
+			</Link>
       </div>
     </div>
    );

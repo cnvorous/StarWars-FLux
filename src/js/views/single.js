@@ -8,7 +8,11 @@ export const Single = props => {
 	const params = useParams();
 	return (
 		<div className="jumbotron">
-			<h1 className="display-4">This will show the demo element: {store.demo[params.theid].title}</h1>
+			{/*<h1 className="display-4"> {store.demo[params.theid].title}</h1>*/}
+			<h5>{props.person}</h5>
+         <p>{props.gender}</p>
+         <p>{props.hair_color}</p>
+         <p> {props.eye_color}</p>
 
 			<hr className="my-4" />
 
