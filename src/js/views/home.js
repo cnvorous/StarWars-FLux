@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
-import rigoImage from "../../img/rigo-baby.jpg";
+import React, { useEffect, useState } from "react";
 import "../../styles/home.css";
-import {StarWarsCard} from "../component/StarWarsCard"; // ../component cause getting out of views folder 
+import {CharacterCard} from "../component/CharacterCard"; // ../component cause getting out of views folder 
+import {PlanetCard} from "../component/PlanetCard";
 // two large collections of items means two arrays 
 //create reusable card component 
 //map through arrays and render card for each
@@ -14,20 +14,21 @@ export const Home = () => {
 	const [planetCard, setPlanetCard]= useState([]);
 
 	useEffect(() => {
-		fetch(https://swapi.dev/api/people/, {
+		fetch("https://swapi.dev/api/people/", {
 			method: "GET", 
 		}) 
 		.then((response) => {
 			return response.json();
 		})
 		.then((characters) => {
+			console.log(characters.results)
 			setPersonCard(characters.results);
 		});
 	}, 
 	[]);
 
 	useEffect(() => {
-		fetch(https://swapi.dev/api/planets/?page=2", {
+		fetch("https://swapi.dev/api/planets/", {
 			method: "GET", 
 		}) 
 		.then((response) => {
@@ -39,9 +40,16 @@ export const Home = () => {
 	}, 
 	[]);
 
+
 	return (
 	<div>
-		<StarWarsCard/>
+		{personCard.map((item)=>{
+			return(
+				<CharacterCard/>
+			);
+		}
+		)}
+		<PlanetCard/>
 	</div>
 );
 }
