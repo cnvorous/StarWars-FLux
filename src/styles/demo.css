@@ -1,0 +1,20 @@
+.character-scroll {
+   overflow-x: auto;
+   white-space: nowrap;
+   margin: 25px 25px;
+   background-color: aqua;
+}
+
+.cards-box{
+   background-color: lightgray;
+}
+
+.planets-box{
+   background-color: rgb(75, 74, 74);
+}
+
+.single-card-container{
+   background-color: rgb(223, 219, 219);
+   margin: 25px 25px; 
+   
+}
