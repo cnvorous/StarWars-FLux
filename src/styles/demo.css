@@ -2,7 +2,6 @@
    overflow-x: auto;
    white-space: nowrap;
    margin: 25px 25px;
-   background-color: aqua;
 }
 
 .cards-box{
@@ -17,4 +16,12 @@
    background-color: rgb(223, 219, 219);
    margin: 25px 25px; 
    
+}
+
+.planet-details-box{
+   background-color: lightgoldenrodyellow;
+}
+
+.character-details{
+   background-color: lightgoldenrodyellow;
 }

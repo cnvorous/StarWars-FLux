@@ -11,6 +11,8 @@ import { SinglePlanetInfo } from "./SinglePlanetInfo";
 
 //home is landing page 
 
+
+
 export const Home = () => {
 
 	const [personCard, setPersonCard] =useState([]);
