@@ -15,36 +15,30 @@ import { SinglePlanetInfo } from "./SinglePlanetInfo";
 
 export const Home = () => {
 
-	const [personCard, setPersonCard] =useState([]);
-	const [planetCard, setPlanetCard]= useState([]);
+	const [personCard, setPersonCard] = useState([]);
+	const [planetCard, setPlanetCard] = useState([]);
+
 
 	useEffect(() => {
-		fetch("https://swapi.dev/api/people/", {
-			method: "GET", 
-		}) 
-		.then((response) => {
-			return response.json();
-		})
-		.then((characters) => {
-			console.log(characters.results)
-			setPersonCard(characters.results);
-		});
-	}, 
-	[]);
+		getData("https://swapi.dev/api/people/", setPersonCard);
+		getData("https://swapi.dev/api/planets/", setPlanetCard);
 
-	useEffect(() => {
-		fetch("https://swapi.dev/api/planets/", {
-			method: "GET", 
-		}) 
-		.then((response) => {
-			return response.json();
-		})
-		.then((planets) => {
-			setPlanetCard(planets.results);
-		});
-	}, 
-	[]);
+	},
+		[]);
 
+	const getData = (url, setter) => {
+		fetch(url,
+			{
+				method: "GET",
+			})
+			.then((response) => {
+				return response.json();
+			})
+			.then((data) => {
+				console.log(data.results)
+				setter(data.results);
+			});
+	}
 
 	return (
 	<div>
@@ -53,13 +47,14 @@ export const Home = () => {
 		<div className="cards-box d-md-inline-flex">  {/*justify-content-around flex-wrap*/}
 		{personCard.map((item, index)=>{  //the item is the bulk of info between {} given, whats inside is different properties
 			return(
-				<CharacterCard 
-					//person={item.name}
-					//gender={item.gender}
-					//hair_color={item.hair_color}
-					//eye_color={item.eye_color}
-					key={index}
-					person={item}
+				<CharacterCard key={index} entity={item}
+					 props1={value1.gender}
+					 props2={value2.hair_color}
+					 props3={value3.eye_color}
+					 props4={value4.height}
+					 props5={value5.skin_color}
+				    props6={value6.birth_year}
+				    props7={value7.mass}
 				/>
 			);
 		}
@@ -71,13 +66,14 @@ export const Home = () => {
 		<div className="planets-box d-md-inline-flex">
 		{planetCard.map((item, index)=>{
 			return(
-				<PlanetCard
-					//planet ={item.name}
-					//climate ={item.climate}
-					// ={item.terrain}
-					//population={item.population}
-					key={index}
-					planet={item}
+				<PlanetCard key={index} entity={item}
+				props1={value1.rotation_period}
+				props2={value2.diameter}
+				props3={value3.climate}
+				props4={value4.gravity}
+				props5={value5.terrain}
+				props6={value6.surface_water}
+				props7={value7.population}
 		     />
 			);
 		} )}

@@ -10,9 +10,9 @@ export const CharacterCard = (props) => {
       <img className="card-img-top" src="https://www.seekpng.com/png/detail/151-1512903_luke-skywalker-comic-book-star-wars-star-wars.png" alt="Luke Sky Walker in white rob and green light sabor"/>
       <div className="card-body">
          <h5 className="card-title">{props.person.name}</h5>
-         <p className="card-text">Gender: {props.person.gender}</p>
-         <p className="card-text">Hair Color: {props.person.hair_color}</p>
-         <p className="card-text">Eye Color: {props.person.eye_color}</p>
+         <p className="card-text">{props1}: {vaule1}</p>
+         <p className="card-text">{props2}: {value2}</p>
+         <p className="card-text">{props3}: {value3}</p>
         {/*} <Link to={`/single/${props.id}/`}>*/}
          <Link to ={{pathname:"/SingleCharacterInfo/"+ props.person.name, state:props.person}}>
 				<span className="btn btn-primary btn-lg" href="#" role="button">
