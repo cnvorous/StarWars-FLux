@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../../styles/home.css";
-import {CharacterCard} from "../component/CharacterCard"; // ../component cause getting out of views folder 
-import {PlanetCard} from "../component/PlanetCard";
+import { CharacterCard } from "../component/CharacterCard"; // ../component cause getting out of views folder 
+import { PlanetCard } from "../component/PlanetCard";
 import { SingleCharacterInfo } from "./SingleCharacterInfo";
 import { SinglePlanetInfo } from "./SinglePlanetInfo";
 
@@ -14,72 +14,78 @@ import { SinglePlanetInfo } from "./SinglePlanetInfo";
 
 
 export const Home = () => {
-
-	const [personCard, setPersonCard] = useState([]);
-	const [planetCard, setPlanetCard] = useState([]);
-
-
 	useEffect(() => {
 		getData("https://swapi.dev/api/people/", setPersonCard);
 		getData("https://swapi.dev/api/planets/", setPlanetCard);
-
 	},
 		[]);
 
 	const getData = (url, setter) => {
-		fetch(url,
-			{
-				method: "GET",
-			})
-			.then((response) => {
-				return response.json();
-			})
-			.then((data) => {
-				console.log(data.results)
-				setter(data.results);
-			});
+		fetch(url)
+			.then(response => response.json())
+			.then(resultJsonified => setter(resultJsonified.results)
+				.catch(error => console.log(error));
 	}
 
 	return (
-	<div>
-		<h1>Characters</h1>
-		<div className="character-scroll">
-		<div className="cards-box d-md-inline-flex">  {/*justify-content-around flex-wrap*/}
-		{personCard.map((item, index)=>{  //the item is the bulk of info between {} given, whats inside is different properties
-			return(
-				<CharacterCard key={index} entity={item}
-					 props1={value1.gender}
-					 props2={value2.hair_color}
-					 props3={value3.eye_color}
-					 props4={value4.height}
-					 props5={value5.skin_color}
-				    props6={value6.birth_year}
-				    props7={value7.mass}
-				/>
-			);
-		}
+		<div>
+			<h1>Characters</h1>
+			<div className="character-scroll">
+				<div className="cards-box d-md-inline-flex">  {/*justify-content-around flex-wrap*/}
+					{personCard.map((item, index) => {  //the item is the bulk of info between {} given, whats inside is different properties
+						return (
+							<CharacterCard data={
+								props: person.name,
+					props1: "Gender",
+					props2: "Hair Color",
+					props3: "Eye Color",
+					props4: "Height",
+					props5: "Skin Color",
+					props6: "Birth Year",
+					props7: "Mass",
+					value1: person.gender,
+					value2: person.hair_color,
+					value3: person.eye_color,
+					value4: person.height,
+					value5: person.skin_color,
+					value6: person.birth_year,
+					value7: person.mass,
+			   	}
+					key={index}/>
+					);
+			}
 		)}
+				</div>
+			</div>
+			<h1>Planets</h1>
+			<div className="character-scroll">
+				<div className="planets-box d-md-inline-flex">
+					{planetCard.map((item, index) => {  //the item is the bulk of info between {} given, whats inside is different properties
+						return (
+							<PlanetCard data={
+								props: planet.name,
+					props1: "Rotation Period",
+					props2: "Diameter",
+					props3: "Climate",
+					props4: "Gravity",
+					props5: "Terrain",
+					props6: "Surface Water",
+					props7: "Population",
+					value1: planet.rotation_period,
+					value2: planet.diameter,
+					value3: planet.climate,
+					value4: planet.gravity,
+					value5: planet.terrain,
+					value6: planet.surface_water,
+					value7: planet.population,
+							}
+					key={index}/>
+					);
+					} 
+				)}
+				</div>
+			</div>
 		</div>
-		</div>
-		<h1>Planets</h1>
-		<div className="character-scroll">
-		<div className="planets-box d-md-inline-flex">
-		{planetCard.map((item, index)=>{
-			return(
-				<PlanetCard key={index} entity={item}
-				props1={value1.rotation_period}
-				props2={value2.diameter}
-				props3={value3.climate}
-				props4={value4.gravity}
-				props5={value5.terrain}
-				props6={value6.surface_water}
-				props7={value7.population}
-		     />
-			);
-		} )}
-		</div>
-		</div>
-	</div>
-);
+	);
 }
 

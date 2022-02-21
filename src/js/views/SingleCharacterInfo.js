@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-export const SingleCharacterInfo = (props) => {
+export const SingleCharacterInfo = (data) => {  // data comes from home page cause has object prop info 
 	//const { store, actions } = useContext(Context);
 	//const params = useParams();
 	const dataFromLink = props.location.state;

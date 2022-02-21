@@ -2,16 +2,16 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link, useParams } from "react-router-dom";
 
-export const PlanetCard = (props) => {
+export const PlanetCard = ({data}) => {
 	return (
     <div className="card">
       <img className="card-img-top" src="https://jkhub.org/wiki/images/0/01/Tatooine.png" alt="round red planet"/>
       <div className="card-body">
-         <h5 className="card-title">{props.planet.name}</h5>
-         <p className="card-text">Terrain: {props.planet.terrain}</p>
-			<p className="card-text">Climate: {props.planet.climate}</p>
-			<p className="card-text">Population: {props.planet.population}</p>
-			<Link to ={{pathname:"/SinglePlanetInfo/"+ props.planet.name, state:props.planet}}>
+         <h5 className="card-title">{data.name}</h5>
+         <p className="card-text">{data.props1}: {data.vaule1}</p>
+			<p className="card-text">{data.props1}: {data.vaule1}</p>
+			<p className="card-text">{data.props1}: {data.vaule1}</p>
+			<Link to ={{pathname:"/SinglePlanetInfo/"+ data.name, state:data}}> {/*props.planet.name, state:props.planet}}> */}
 				<span className="btn btn-primary btn-lg" href="#" role="button">
 					Learn More
 				</span>
