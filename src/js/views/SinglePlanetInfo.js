@@ -13,7 +13,7 @@ export const SinglePlanetInfo = ({data}) => {
 		<div className="single-card-container d-flex">
 			<img src="https://jkhub.org/wiki/images/0/01/Tatooine.png" className="card-img w-50 h-50" alt="..."/>  
 			<div className="planet-details-box d-flex flex-column">
-				<h1 className="card-title">{data.name}</h1>  {/*{dataFromLinkPlanet.name} */}
+				<h1 className="card-title">{props}: {value}</h1>  {/*{dataFromLinkPlanet.name} */}
 				<p className="card-text">{props1}: {value1}</p>
 				<p className="card-text">{props2}: {value2}</p>
 				<p className="card-text">{props3}: {value3}</p>

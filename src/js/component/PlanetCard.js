@@ -7,7 +7,7 @@ export const PlanetCard = ({data}) => {
     <div className="card">
       <img className="card-img-top" src="https://jkhub.org/wiki/images/0/01/Tatooine.png" alt="round red planet"/>
       <div className="card-body">
-         <h5 className="card-title">{data.name}</h5>
+         <h5 className="card-title">{data.props}: {data.vaule}</h5>
          <p className="card-text">{data.props1}: {data.vaule1}</p>
 			<p className="card-text">{data.props1}: {data.vaule1}</p>
 			<p className="card-text">{data.props1}: {data.vaule1}</p>

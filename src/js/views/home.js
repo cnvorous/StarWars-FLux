@@ -4,15 +4,11 @@ import { CharacterCard } from "../component/CharacterCard"; // ../component caus
 import { PlanetCard } from "../component/PlanetCard";
 import { SingleCharacterInfo } from "./SingleCharacterInfo";
 import { SinglePlanetInfo } from "./SinglePlanetInfo";
-
 // two large collections of items means two arrays 
 //create reusable card component 
 //map through arrays and render card for each
-
+//-----------------------------------
 //home is landing page 
-
-
-
 export const Home = () => {
 	useEffect(() => {
 		getData("https://swapi.dev/api/people/", setPersonCard);
@@ -23,10 +19,9 @@ export const Home = () => {
 	const getData = (url, setter) => {
 		fetch(url)
 			.then(response => response.json())
-			.then(resultJsonified => setter(resultJsonified.results)
+			.then(resultJsonified => setter(resultJsonified.results))
 				.catch(error => console.log(error));
 	}
-
 	return (
 		<div>
 			<h1>Characters</h1>
@@ -35,7 +30,7 @@ export const Home = () => {
 					{personCard.map((item, index) => {  //the item is the bulk of info between {} given, whats inside is different properties
 						return (
 							<CharacterCard data={
-								props: person.name,
+					props:  "Name",
 					props1: "Gender",
 					props2: "Hair Color",
 					props3: "Eye Color",
@@ -43,6 +38,7 @@ export const Home = () => {
 					props5: "Skin Color",
 					props6: "Birth Year",
 					props7: "Mass",
+					value: person.name,
 					value1: person.gender,
 					value2: person.hair_color,
 					value3: person.eye_color,
@@ -64,6 +60,7 @@ export const Home = () => {
 						return (
 							<PlanetCard data={
 								props: planet.name,
+					props:  "Name",
 					props1: "Rotation Period",
 					props2: "Diameter",
 					props3: "Climate",
@@ -71,6 +68,7 @@ export const Home = () => {
 					props5: "Terrain",
 					props6: "Surface Water",
 					props7: "Population",
+					value:  planet.name,
 					value1: planet.rotation_period,
 					value2: planet.diameter,
 					value3: planet.climate,
