@@ -16,10 +16,15 @@ export const Home = () => {
 	},
 		[]);
 
+	const [personCard, setPersonCard]=useState([]);
+	const [planetCard, setPlanetCard]=useState([]);
+
 	const getData = (url, setter) => {
 		fetch(url)
 			.then(response => response.json())
-			.then(resultJsonified => setter(resultJsonified.results))
+			.then(resultJsonified => {
+				setter(resultJsonified.results)
+			})
 				.catch(error => console.log(error));
 	}
 	return (
@@ -27,9 +32,9 @@ export const Home = () => {
 			<h1>Characters</h1>
 			<div className="character-scroll">
 				<div className="cards-box d-md-inline-flex">  {/*justify-content-around flex-wrap*/}
-					{personCard.map((item, index) => {  //the item is the bulk of info between {} given, whats inside is different properties
+					{personCard.map((person, index) => {  //the item is the bulk of info between {} given, whats inside is different properties
 						return (
-							<CharacterCard data={
+							<CharacterCard data={{
 					props:  "Name",
 					props1: "Gender",
 					props2: "Hair Color",
@@ -38,7 +43,7 @@ export const Home = () => {
 					props5: "Skin Color",
 					props6: "Birth Year",
 					props7: "Mass",
-					value: person.name,
+					value:  person.name,
 					value1: person.gender,
 					value2: person.hair_color,
 					value3: person.eye_color,
@@ -46,7 +51,7 @@ export const Home = () => {
 					value5: person.skin_color,
 					value6: person.birth_year,
 					value7: person.mass,
-			   	}
+			   	}}
 					key={index}/>
 					);
 			}
@@ -56,10 +61,9 @@ export const Home = () => {
 			<h1>Planets</h1>
 			<div className="character-scroll">
 				<div className="planets-box d-md-inline-flex">
-					{planetCard.map((item, index) => {  //the item is the bulk of info between {} given, whats inside is different properties
+					{planetCard.map((planet, index) => {  //the item is the bulk of info between {} given, whats inside is different properties
 						return (
-							<PlanetCard data={
-								props: planet.name,
+							<PlanetCard data={{
 					props:  "Name",
 					props1: "Rotation Period",
 					props2: "Diameter",
@@ -76,7 +80,7 @@ export const Home = () => {
 					value5: planet.terrain,
 					value6: planet.surface_water,
 					value7: planet.population,
-							}
+							}}
 					key={index}/>
 					);
 					} 

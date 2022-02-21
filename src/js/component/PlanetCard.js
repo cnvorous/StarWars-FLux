@@ -7,11 +7,11 @@ export const PlanetCard = ({data}) => {
     <div className="card">
       <img className="card-img-top" src="https://jkhub.org/wiki/images/0/01/Tatooine.png" alt="round red planet"/>
       <div className="card-body">
-         <h5 className="card-title">{data.props}: {data.vaule}</h5>
-         <p className="card-text">{data.props1}: {data.vaule1}</p>
-			<p className="card-text">{data.props1}: {data.vaule1}</p>
-			<p className="card-text">{data.props1}: {data.vaule1}</p>
-			<Link to ={{pathname:"/SinglePlanetInfo/"+ data.name, state:data}}> {/*props.planet.name, state:props.planet}}> */}
+         <h5 className="card-title">{data.props}: {data.value}</h5>
+         <p className="card-text">{data.props1}: {data.value1}</p>
+			<p className="card-text">{data.props2}: {data.value2}</p>
+			<p className="card-text">{data.props3}: {data.value3}</p>
+			<Link to ={{pathname:"/SinglePlanetInfo/"+ data.value, state:data}}> {/*props.planet.name, state:props.planet}}> */}
 				<span className="btn btn-primary btn-lg" href="#" role="button">
 					Learn More
 				</span>
@@ -21,8 +21,8 @@ export const PlanetCard = ({data}) => {
    );
   }
 
-PlanetCard.propTypes= {
-         planet: PropTypes.object,
+//PlanetCard.propTypes= {
+  //       planet: PropTypes.object,
 		//	rotation_period: PropTypes.string,
 		//	orbital_period: PropTypes.string,
 		//	diameter: PropTypes.string,
@@ -31,4 +31,4 @@ PlanetCard.propTypes= {
 		//	terrain: PropTypes.string,
 		//	surface_water: PropTypes.string,
 		//	population: PropTypes.string,
-}
+//}
