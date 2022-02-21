@@ -9,7 +9,7 @@ export const CharacterCard = ({data}) => { //changes this from props to entitiy 
     <div className="card">
       <img className="card-img-top" src="https://www.seekpng.com/png/detail/151-1512903_luke-skywalker-comic-book-star-wars-star-wars.png" alt="Luke Sky Walker in white rob and green light sabor"/>
       <div className="card-body">
-         <h5 className="card-title">{data.person.name}</h5>
+         <h5 className="card-title">{data.name}</h5>
          <p className="card-text">{data.props1}: {data.vaule1}</p>
          <p className="card-text">{data.props2}: {data.value2}</p>
          <p className="card-text">{data.props3}: {data.value3}</p>

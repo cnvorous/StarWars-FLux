@@ -3,17 +3,17 @@ import PropTypes from "prop-types";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-export const SinglePlanetInfo = (props) => {
+export const SinglePlanetInfo = ({data}) => {
 	//const { store, actions } = useContext(Context);
 	//const params = useParams();
-	const dataFromLinkPlanet= props.location.state
+	//const dataFromLinkPlanet= props.location.state  no longer need this 
 
 	return (
 		// info comes from REACT Router
 		<div className="single-card-container d-flex">
 			<img src="https://jkhub.org/wiki/images/0/01/Tatooine.png" className="card-img w-50 h-50" alt="..."/>  
 			<div className="planet-details-box d-flex flex-column">
-				<h1 className="card-title">{dataFromLinkPlanet.name}</h1> 
+				<h1 className="card-title">{data.name}</h1>  {/*{dataFromLinkPlanet.name} */}
 				<p className="card-text">{props1}: {value1}</p>
 				<p className="card-text">{props2}: {value2}</p>
 				<p className="card-text">{props3}: {value3}</p>
