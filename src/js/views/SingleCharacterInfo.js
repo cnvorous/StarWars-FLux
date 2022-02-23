@@ -3,9 +3,11 @@ import PropTypes from "prop-types";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-export const SingleCharacterInfo = ({data}) => {  // data comes from home page cause has object prop info 
-	//const { store, actions } = useContext(Context);
-	//const params = useParams();
+export const SingleCharacterInfo = () => {  // data comes from home page cause has object prop info 
+	const { store, actions } = useContext(Context);
+	const params = useParams();
+	const data = store.characters[params.theid]
+
 	//const dataFromLink = props.location.state;
 
 	return (
@@ -13,8 +15,8 @@ export const SingleCharacterInfo = ({data}) => {  // data comes from home page c
 		<div className="single-card-container d-flex">
 		<img src="https://www.seekpng.com/png/detail/151-1512903_luke-skywalker-comic-book-star-wars-star-wars.png" alt="Luke Sky Walker in white rob and green light sabor" className="card-img w-50 h-50" alt="..."/>
 			<div className="character-details d-flex flex-column">
-				<h1 className="card-title ">{data.props}: {data.value}</h1>  {/*props.location.state.name was from class*/}  
-				<p className="card-text">{data.props1}: {data.value1}</p>
+				<h1 className="card-title ">{data.name}</h1>  {/*props.location.state.name was from class*/}  
+				<p className="card-text">{data.Gender}: {data.value1}</p>
 				<p className="card-text">{data.props2}: {data.value2}</p>
 				<p className="card-text">{data.props3}: {data.value3}</p>
 				<p className="card-text">{data.props4}: {data.value4}</p>

@@ -1,32 +1,40 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import "../../styles/home.css";
 import { CharacterCard } from "../component/CharacterCard"; // ../component cause getting out of views folder 
 import { PlanetCard } from "../component/PlanetCard";
 import { SingleCharacterInfo } from "./SingleCharacterInfo";
 import { SinglePlanetInfo } from "./SinglePlanetInfo";
+import { Context } from "../store/appContext";
 // two large collections of items means two arrays 
 //create reusable card component 
 //map through arrays and render card for each
 //-----------------------------------
 //home is landing page 
 export const Home = () => {
-	useEffect(() => {
-		getData("https://swapi.dev/api/people/", setPersonCard);
-		getData("https://swapi.dev/api/planets/", setPlanetCard);
-	},
-		[]);
-
 	const [personCard, setPersonCard]=useState([]);
 	const [planetCard, setPlanetCard]=useState([]);
 
-	const getData = (url, setter) => {
-		fetch(url)
-			.then(response => response.json())
-			.then(resultJsonified => {
-				setter(resultJsonified.results)
-			})
-				.catch(error => console.log(error));
-	}
+	const {store, actions}= useContext(Context);
+	// useEffect(() => {
+	// 	getData("https://swapi.dev/api/people/", setPersonCard);
+	// 	getData("https://swapi.dev/api/planets/", setPlanetCard);
+	// },
+	// 	[]);
+	useEffect(() => {
+		setPersonCard(store.characters)
+		setPlanetCard(store.planets)
+		},
+		[store.characters, store.planets]);
+
+
+	// const getData = (url, setter) => {
+	// 	fetch(url)
+	// 		.then(response => response.json())
+	// 		.then(resultJsonified => {
+	// 			setter(resultJsonified.results)
+	// 		})
+	// 			.catch(error => console.log(error));
+	// }
 	return (
 		<div>
 			<h1>Characters</h1>
@@ -51,6 +59,7 @@ export const Home = () => {
 					value5: person.skin_color,
 					value6: person.birth_year,
 					value7: person.mass,
+					index: index
 			   	}}
 					key={index}/>
 					);
@@ -80,6 +89,7 @@ export const Home = () => {
 					value5: planet.terrain,
 					value6: planet.surface_water,
 					value7: planet.population,
+					index: index
 							}}
 					key={index}/>
 					);

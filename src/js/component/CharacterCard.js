@@ -15,7 +15,7 @@ export const CharacterCard = ({data}) => {
          <p className="card-text">{data.props2}: {data.value2}</p>
          <p className="card-text">{data.props3}: {data.value3}</p>
         {/*} <Link to={`/single/${props.id}/`}>*/}
-         <Link to ={{pathname:"/SingleCharacterInfo/"+ data.value, state:data}}>  {/*this part has changed many times now reflects data update */}
+         <Link to ={{pathname:"/SingleCharacterInfo/"+ data.index, state:data}}>  {/*this part has changed many times now reflects data update */}
 				<span className="btn btn-primary btn-lg" href="#" role="button">
 					Learn More
 				</span>
